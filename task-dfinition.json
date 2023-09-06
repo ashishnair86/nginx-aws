@@ -2,7 +2,7 @@
     "containerDefinitions": [
         {
             "name": "web",
-            "image": "211307699050.dkr.ecr.ap-south-1.amazonaws.com/nginx",
+            "image": "211307699050.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest",
             "cpu": 0,
             "portMappings": [
                 {
