@@ -1,4 +1,4 @@
-"taskDefinitionArn": "arn:aws:ecs:ap-south-1:211307699050:task-definition/nginx-family:1",
+"taskDefinitionArn": "arn:aws:ecs:ap-south-1:211307699050:task-definition/nginx-family",
     "containerDefinitions": [
         {
             "name": "web",
