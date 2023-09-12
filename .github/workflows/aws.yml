@@ -23,6 +23,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          docker rmi -f $(docker images -a -q)
           docker build -t nginx:latest .
           docker tag nginx:latest 091888203811.dkr.ecr.eu-west-1.amazonaws.com/nginx:latest
           docker push 091888203811.dkr.ecr.eu-west-1.amazonaws.com/nginx:latest
