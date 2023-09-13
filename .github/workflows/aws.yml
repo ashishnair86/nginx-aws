@@ -3,7 +3,7 @@ name: ECS Update
 on:
   push:
     branches:
-      - main # Change to your desired branch
+      - main
 
 jobs:
   update-ecs:
