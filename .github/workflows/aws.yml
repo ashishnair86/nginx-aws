@@ -35,7 +35,7 @@ jobs:
 
       - name: Update ECS Service
         run: |
-          aws ecs update-service --cluster nginx-cluster --service nginx
+          aws ecs update-service --cluster nginx-cluster --service nginx --task-definition arn:aws:ecs:eu-west-1:091888203811:task-definition/nginx:2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
