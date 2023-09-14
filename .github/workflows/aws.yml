@@ -35,7 +35,8 @@ jobs:
 
       - name: Update ECS Service
         run: |
-          aws ecs update-service --cluster nginx-cluster --service nginx --task-definition arn:aws:ecs:eu-west-1:091888203811:task-definition/nginx:2
+          aws s3api create-bucket --bucket for-app-spec --region ${{ secrets.AWS_REGION }}
+          aws s3 cp ./appspec.yaml s3://for-app-spec/appspec.yaml
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
