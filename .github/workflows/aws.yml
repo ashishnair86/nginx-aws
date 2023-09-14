@@ -34,7 +34,7 @@ jobs:
 
       - name: Update ECS Service
         run: |
-          aws s3api create-bucket --bucket for-app-spec --region eu-west-1
+          aws s3api create-bucket --bucket for-app-spec --region eu-west-1 --create-bucket-configuration LocationConstraint=eu-west-1
           aws s3 cp ./appspec.yaml s3://for-app-spec/appspec.yaml
           aws deploy create-deployment --cli-input-json file://create-deployment.json
         env:
