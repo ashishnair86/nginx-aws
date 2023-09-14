@@ -1,0 +1,12 @@
+{
+    "applicationName": "AppECS-nginx-cluster-nginx",
+    "deploymentGroupName": "DgpECS-nginx-cluster-nginx",
+    "revision": {
+        "revisionType": "S3",
+        "s3Location": {
+            "bucket": "for-app-spec",
+            "key": "appspec.yaml",
+            "bundleType": "YAML"
+        }
+    }
+}
