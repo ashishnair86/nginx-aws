@@ -32,12 +32,15 @@ jobs:
           AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
           DOCKER_BUILDKIT: 1
 
-      - name: Update ECS Service
+      - name: create a bucket to store the appsec file
+        continue-on-error: true
         run: |
           aws s3api create-bucket --bucket for-app-spec --region eu-west-1 --create-bucket-configuration LocationConstraint=eu-west-1
+
+      - name: Update ECS Service
+        run: |
           aws s3 cp ./appspec.yaml s3://for-app-spec/appspec.yaml
           aws deploy create-deployment --cli-input-json file://create-deployment.json
-        if: aws s3 ls for-app-spec --region eu-west-1 == 'false'
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
